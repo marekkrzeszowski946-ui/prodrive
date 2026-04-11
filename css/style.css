@@ -1,0 +1,261 @@
+:root {
+    --orange: #FF8C00;
+    --bg-dark: #1C1C1E;
+    --ios-gray: #F2F2F7;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--ios-gray);
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    padding: 10px 50px;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.navbar.scrolled .logo { color: #1c1c1e; }
+.logo span { color: var(--orange); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 30px;
+    font-weight: 500;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.navbar.scrolled .nav-links li a { color: #1c1c1e; }
+
+.hero {
+    height: 100vh;
+    min-height: 480px;
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65)), url('../img/hero-prodrive.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero-content h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 15px; font-weight: 800; letter-spacing: -1px; }
+.hero-content p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+.btn-main {
+    background: var(--orange);
+    color: white;
+    padding: 16px 45px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 35px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+}
+
+.btn-main:hover { transform: scale(1.05); }
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 0 50px;
+    max-width: 1200px;
+    margin: -100px auto 60px;
+    position: relative;
+    z-index: 10;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 28px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    text-align: center;
+    border-top: 6px solid var(--orange);
+    transition: 0.3s;
+}
+.card:hover { transform: translateY(-5px); }
+.card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+
+.guide-section {
+    padding: 72px 20px 48px;
+    background: var(--ios-gray);
+}
+.guide-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+.guide-section > .guide-inner > h2 {
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 1.85rem);
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1c1c1e;
+}
+.guide-lead {
+    text-align: center;
+    color: #636366;
+    max-width: 640px;
+    margin: 0 auto 32px;
+    font-size: 1.05rem;
+}
+.guide-block {
+    background: #fff;
+    border-radius: 22px;
+    padding: 26px 28px;
+    margin-bottom: 18px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+    border-left: 4px solid var(--orange);
+}
+.guide-block h3 {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    color: #1c1c1e;
+}
+.guide-block ul {
+    padding-left: 1.25rem;
+    margin: 0;
+}
+.guide-block li {
+    margin-bottom: 14px;
+}
+.guide-block li:last-child { margin-bottom: 0; }
+.guide-block .guide-item-title {
+    font-weight: 600;
+    color: #1c1c1e;
+}
+.guide-block p {
+    margin: 0 0 10px;
+}
+.guide-block p:last-child { margin-bottom: 0; }
+.guide-important {
+    background: rgba(255, 140, 0, 0.08);
+    border-radius: 14px;
+    padding: 12px 16px;
+    margin-top: 14px;
+    font-size: 0.95rem;
+}
+.guide-important strong { color: #1c1c1e; }
+
+.reviews-section {
+    padding: 80px 20px 100px;
+    background: #fff;
+    text-align: center;
+}
+.reviews-section > h2 {
+    font-size: clamp(1.5rem, 4vw, 1.85rem);
+    margin-bottom: 8px;
+}
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    justify-content: center;
+    gap: 20px;
+    max-width: 1560px;
+    margin: 36px auto 0;
+}
+.review-card {
+    background: var(--ios-gray);
+    border-radius: 22px;
+    padding: 25px;
+    width: 100%;
+    max-width: none;
+    text-align: left;
+    transition: 0.3s;
+}
+.review-header { display: flex; align-items: center; margin-bottom: 12px; }
+.google-icon {
+    width: 36px; height: 36px; background: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; color: #4285F4; margin-right: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.stars { color: #FFD700; font-size: 12px; }
+
+.contact-section { padding: 100px 20px; background: var(--ios-gray); display: flex; justify-content: center; }
+.glass-form {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    padding: 45px;
+    border-radius: 35px;
+    width: 100%;
+    max-width: 480px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.05);
+}
+input {
+    width: 100%; padding: 18px; margin: 12px 0;
+    border-radius: 16px; border: 1px solid #e5e5ea;
+    background: rgba(255,255,255,0.8); font-size: 16px;
+}
+.btn-submit {
+    width: 100%; background: #1c1c1e; color: white;
+    padding: 18px; border: none; border-radius: 16px;
+    font-size: 17px; font-weight: 600; cursor: pointer;
+    margin-top: 15px; transition: 0.3s;
+}
+.btn-submit:hover { background: var(--orange); }
+
+.form-success {
+    color: #1a7f37;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+footer { text-align: center; padding: 60px; color: #8e8e93; font-size: 14px; background: #fff; }
+.social-links { margin-top: 10px; }
+.social-links a { color: var(--orange); text-decoration: none; margin: 0 15px; font-size: 24px; transition: 0.3s; }
+.social-links a:hover { color: #1c1c1e; transform: scale(1.1); }
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .navbar { padding: 15px 25px; }
+    .info-grid { padding: 0 20px; }
+    .guide-block { padding: 22px 20px; }
+}
